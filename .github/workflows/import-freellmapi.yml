@@ -1,0 +1,35 @@
+name: Import FreeLLMAPI
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.event.head_commit.message != 'Import FreeLLMAPI into Flame'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Flame
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Import FreeLLMAPI source
+        run: |
+          set -e
+          rm -rf /tmp/freellmapi
+          git clone --depth 1 https://github.com/tashfeenahmed/freellmapi.git /tmp/freellmapi
+
+          find /tmp/freellmapi -mindepth 1 -maxdepth 1 ! -name .git -exec cp -a {} . \;
+
+          rm -f .github/workflows/import-freellmapi.yml
+
+          git config user.name "Flame Import Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git commit -m "Import FreeLLMAPI into Flame"
+          git push origin HEAD:main

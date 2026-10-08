@@ -1,0 +1,42 @@
+name: Sync FreeLLMAPI
+
+on:
+  schedule:
+    - cron: "17 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Flame
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync FreeLLMAPI from upstream
+        run: |
+          git clone --depth 1 https://github.com/tashfeenahmed/freellmapi.git /tmp/freellmapi
+
+          rsync -a --delete             --exclude='.git/'             --exclude='.github/'             --exclude='.env'             /tmp/freellmapi/ ./
+
+          rm -rf .github
+          git checkout -- .github 2>/dev/null || true
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "FreeLLMAPI is already up to date."
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "Sync FreeLLMAPI upstream"
+          git push origin main

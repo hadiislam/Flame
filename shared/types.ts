@@ -107,6 +107,8 @@ export type Platform =
   // Daily-free video route; signed catalog only.
   | 'novai'
   | 'varosity'
+  // Native TTS and transcription; one shared renewable monthly credit grant.
+  | 'rime'
   // Research API; chat and embeddings share a daily quota. Requests are logged.
   | 'freeinference'
   // Personal BYOK client; shared monthly account allowance, Telegram verification.
@@ -583,6 +585,9 @@ export interface ChatCompletionResponse {
     platform: Platform;
     model: string;
   };
+  // Anthropic auto-mode classifier results, when the upstream supplied them
+  // (#1589). Never synthesized here; absent when the upstream sends none.
+  safeguard_results?: unknown;
 }
 
 export interface ChatCompletionChunk {
@@ -601,6 +606,10 @@ export interface ChatCompletionChunk {
     finish_reason: string | null;
   }[];
   usage?: TokenUsage;
+  // Anthropic auto-mode classifier results carried on a stream chunk, when
+  // the upstream supplied them (#1589). Same rule as the non-streaming
+  // response: passed through verbatim, never synthesized.
+  safeguard_results?: unknown;
 }
 
 // ---- Analytics Types ----

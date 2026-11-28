@@ -22,6 +22,7 @@
 <p align="center">
   <a href="https://github.com/tashfeenahmed/freellmapi/releases/latest"><img src="repo-assets/badges/macos.svg" height="48" alt="macOS 版をダウンロード"></a>
   <a href="https://apps.microsoft.com/detail/9PBN6G8K2B7F"><img src="repo-assets/badges/microsoft-store.svg" height="48" alt="Microsoft Store から入手"></a>
+  <a href="https://github.com/tashfeenahmed/freellmapi/releases/latest"><img src="repo-assets/badges/windows.svg" height="48" alt="Windows 版をダウンロード"></a>
   <a href="docs/en/install/01-install.md#docker-compose"><img src="repo-assets/badges/docker.svg" height="48" alt="Docker でセルフホスト"></a>
   <a href="https://play.google.com/store/apps/details?id=co.freellmapi.app"><img src="repo-assets/badges/play-store.svg" height="48" alt="Google Play で手に入れよう"></a>
   <a href="https://apps.apple.com/app/id6804648934"><img src="repo-assets/badges/app-store.svg" height="48" alt="App Store でダウンロード"></a>
@@ -187,6 +188,8 @@ Windows では、**[Microsoft Store](https://apps.microsoft.com/detail/9PBN6G8K2
 
 **[Releases からダウンロード](https://github.com/tashfeenahmed/freellmapi/releases/latest)** — macOS の `.dmg` と Windows の `.exe` インストーラーが、すべてのリリースに添付されています。Windows では **[Microsoft Store](https://apps.microsoft.com/detail/9PBN6G8K2B7F)** 版をお勧めします。署名済みなので Smart App Control にブロックされず、Store が自動で更新します。アカウントもパスワードも設定不要で、必要な認証情報はトレイのポップオーバーにある統合 API キーだけです。ソースからのビルド手順とデータの保存場所は [docs/en/install/01-install.md#desktop-app](docs/en/install/01-install.md#desktop-app) をご覧ください。
 
+**Store を使わずに Windows に入れる:** Store でインストールできない場合(「問題が発生しました」など)は、[最新リリース](https://github.com/tashfeenahmed/freellmapi/releases/latest)から `FreeLLMAPI-Setup-<version>.exe`(インストーラー、自動更新あり)または `FreeLLMAPI-<version>-win.zip`(ポータブル版。展開して `FreeLLMAPI.exe` を実行)をダウンロードしてください。どちらも未署名のため、SmartScreen に「Windows によって PC が保護されました」と表示されたら **詳細情報 → 実行** をクリックします。Smart App Control にはアプリ単位の例外がないため、ブロックされる場合は Store 版か [Docker](docs/en/install/01-install.md#docker-compose) を使ってください。
+
 macOS 12 Monterey 以降では、**arm64 (Apple Silicon)** か **x64 (Intel)** を選んでください。どちらの Mac 向けビルドにも ZIP のダウンロードがあります。
 
 ## OpenAI 互換クライアントでの利用
@@ -346,8 +349,6 @@ print("Routed via:", response.headers.get("x-routed-via"))
 `npm install && npm run dev` で、サーバーが :3001、ダッシュボードが :5173 で起動し、どちらも HMR に対応しています。再現性のあるセットアップには、Bash では `./scripts/dev-bootstrap.sh`、PowerShell では `.\scripts\dev-bootstrap.ps1` を使ってください。どちらも既存の `.env` を保持します。PR にはテストを含め、既存のスイートを通し(`npm test`)、リポジトリにすでにある `.editorconfig` / tsconfig のデフォルトに合わせてください。データベースマイグレーションのワークフローとコントリビューターの全体的な流れは [CONTRIBUTING.md](./CONTRIBUTING.md) にあります。
 
 ### コントリビューター
-
-[@mamehi](https://github.com/mamehi) さんには [README の韓国語訳](README.ko.md)を、[@eltociear](https://github.com/eltociear) さんには [README の日本語訳](README.ja.md)をしていただきました。ありがとうございます。
 
 <a href="https://github.com/moaaz12-web"><img src="https://images.weserv.nl/?url=github.com/moaaz12-web.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@moaaz12-web" /></a>
 <a href="https://github.com/AdityaxDeore"><img src="https://images.weserv.nl/?url=github.com/AdityaxDeore.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@AdityaxDeore" /></a>
@@ -530,6 +531,20 @@ print("Routed via:", response.headers.get("x-routed-via"))
 <a href="https://github.com/dirtious15"><img src="https://images.weserv.nl/?url=github.com/dirtious15.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@dirtious15" /></a>
 <a href="https://github.com/eltociear"><img src="https://images.weserv.nl/?url=github.com/eltociear.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@eltociear" /></a>
 <a href="https://github.com/Aniketchavan7"><img src="https://images.weserv.nl/?url=github.com/Aniketchavan7.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@Aniketchavan7" /></a>
+<a href="https://github.com/flipcyde101"><img src="https://images.weserv.nl/?url=github.com/flipcyde101.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@flipcyde101" /></a>
+<a href="https://github.com/FNICKE"><img src="https://images.weserv.nl/?url=github.com/FNICKE.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@FNICKE" /></a>
+<a href="https://github.com/georgehadji"><img src="https://images.weserv.nl/?url=github.com/georgehadji.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@georgehadji" /></a>
+<a href="https://github.com/MuhammadAhmadRaza087"><img src="https://images.weserv.nl/?url=github.com/MuhammadAhmadRaza087.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@MuhammadAhmadRaza087" /></a>
+<a href="https://github.com/prascli"><img src="https://images.weserv.nl/?url=github.com/prascli.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@prascli" /></a>
+<a href="https://github.com/SASU004"><img src="https://images.weserv.nl/?url=github.com/SASU004.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@SASU004" /></a>
+<a href="https://github.com/SHMOUKE"><img src="https://images.weserv.nl/?url=github.com/SHMOUKE.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@SHMOUKE" /></a>
+<a href="https://github.com/Tushar49"><img src="https://images.weserv.nl/?url=github.com/Tushar49.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@Tushar49" /></a>
+<a href="https://github.com/Volko61"><img src="https://images.weserv.nl/?url=github.com/Volko61.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@Volko61" /></a>
+<a href="https://github.com/eltociear"><img src="https://images.weserv.nl/?url=github.com/eltociear.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@eltociear" /></a>
+<a href="https://github.com/mamehi"><img src="https://images.weserv.nl/?url=github.com/mamehi.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@mamehi" /></a>
+<a href="https://github.com/chuenchen309"><img src="https://images.weserv.nl/?url=github.com/chuenchen309.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@chuenchen309" /></a>
+<a href="https://github.com/ixABK"><img src="https://images.weserv.nl/?url=github.com/ixABK.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@ixABK" /></a>
+<a href="https://github.com/zhangsheng377"><img src="https://images.weserv.nl/?url=github.com/zhangsheng377.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@zhangsheng377" /></a>
 
 ## 免責事項
 

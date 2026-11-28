@@ -20,6 +20,7 @@ Aggregate free tiers from dozens of providers, plus custom OpenAI-compatible cha
 <p align="center">
   <a href="https://github.com/tashfeenahmed/freellmapi/releases/latest"><img src="repo-assets/badges/macos.svg" height="48" alt="Download for macOS"></a>
   <a href="https://apps.microsoft.com/detail/9PBN6G8K2B7F"><img src="repo-assets/badges/microsoft-store.svg" height="48" alt="Get it from Microsoft Store"></a>
+  <a href="https://github.com/tashfeenahmed/freellmapi/releases/latest"><img src="repo-assets/badges/windows.svg" height="48" alt="Download for Windows"></a>
   <a href="docs/en/install/01-install.md#docker-compose"><img src="repo-assets/badges/docker.svg" height="48" alt="Self-host with Docker"></a>
   <a href="https://play.google.com/store/apps/details?id=co.freellmapi.app"><img src="repo-assets/badges/play-store.svg" height="48" alt="Get it on Google Play"></a>
   <a href="https://apps.apple.com/app/id6804648934"><img src="repo-assets/badges/app-store.svg" height="48" alt="Download on the App Store"></a>
@@ -185,6 +186,8 @@ A native menu-bar app lives in [`desktop/`](./desktop): the entire router + dash
 
 **[Download from Releases](https://github.com/tashfeenahmed/freellmapi/releases/latest)** — the macOS `.dmg` and the Windows `.exe` installer are attached to every release. On Windows, prefer the **[Microsoft Store](https://apps.microsoft.com/detail/9PBN6G8K2B7F)** version: it is signed, so Smart App Control does not block it, and the Store keeps it updated. No account or password to set up: the only credential you need is the unified API key from the tray popover. Build-from-source steps and where your data lives: [docs/en/install/01-install.md#desktop-app](docs/en/install/01-install.md#desktop-app).
 
+**Windows without the Store:** if the Store won't install it (for example "Something went wrong"), open the [latest release](https://github.com/tashfeenahmed/freellmapi/releases/latest) and download `FreeLLMAPI-Setup-<version>.exe` (installer, updates itself) or `FreeLLMAPI-<version>-win.zip` (portable: unzip and run `FreeLLMAPI.exe`). Both are unsigned, so if SmartScreen shows "Windows protected your PC", click **More info → Run anyway**. Smart App Control has no per-app exception: if it blocks them, use the Store build or [Docker](docs/en/install/01-install.md#docker-compose) instead.
+
 For macOS 12 Monterey or later, choose **arm64 (Apple Silicon)** or **x64 (Intel)**. Both Mac builds also include a ZIP download.
 
 ## Works with OpenAI-compatible clients
@@ -344,8 +347,6 @@ Contributors very welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for the dev lo
 `npm install && npm run dev` gets you the server on :3001 and the dashboard on :5173, both with HMR. For a repeatable setup, use `./scripts/dev-bootstrap.sh` on Bash or `.\scripts\dev-bootstrap.ps1` on PowerShell; each preserves an existing `.env`. PRs should include a test, keep the existing suite green (`npm test`), and match the `.editorconfig` / tsconfig defaults already in the repo. Database migration workflow and the full contributor loop are in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ### Contributors
-
-Thanks to [@mamehi](https://github.com/mamehi) for translating the [README into Korean](README.ko.md), and to [@eltociear](https://github.com/eltociear) for translating it [into Japanese](README.ja.md).
 
 <a href="https://github.com/moaaz12-web"><img src="https://images.weserv.nl/?url=github.com/moaaz12-web.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@moaaz12-web" /></a>
 <a href="https://github.com/AdityaxDeore"><img src="https://images.weserv.nl/?url=github.com/AdityaxDeore.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@AdityaxDeore" /></a>
@@ -528,6 +529,20 @@ Thanks to [@mamehi](https://github.com/mamehi) for translating the [README into 
 <a href="https://github.com/dirtious15"><img src="https://images.weserv.nl/?url=github.com/dirtious15.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@dirtious15" /></a>
 <a href="https://github.com/eltociear"><img src="https://images.weserv.nl/?url=github.com/eltociear.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@eltociear" /></a>
 <a href="https://github.com/Aniketchavan7"><img src="https://images.weserv.nl/?url=github.com/Aniketchavan7.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@Aniketchavan7" /></a>
+<a href="https://github.com/flipcyde101"><img src="https://images.weserv.nl/?url=github.com/flipcyde101.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@flipcyde101" /></a>
+<a href="https://github.com/FNICKE"><img src="https://images.weserv.nl/?url=github.com/FNICKE.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@FNICKE" /></a>
+<a href="https://github.com/georgehadji"><img src="https://images.weserv.nl/?url=github.com/georgehadji.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@georgehadji" /></a>
+<a href="https://github.com/MuhammadAhmadRaza087"><img src="https://images.weserv.nl/?url=github.com/MuhammadAhmadRaza087.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@MuhammadAhmadRaza087" /></a>
+<a href="https://github.com/prascli"><img src="https://images.weserv.nl/?url=github.com/prascli.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@prascli" /></a>
+<a href="https://github.com/SASU004"><img src="https://images.weserv.nl/?url=github.com/SASU004.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@SASU004" /></a>
+<a href="https://github.com/SHMOUKE"><img src="https://images.weserv.nl/?url=github.com/SHMOUKE.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@SHMOUKE" /></a>
+<a href="https://github.com/Tushar49"><img src="https://images.weserv.nl/?url=github.com/Tushar49.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@Tushar49" /></a>
+<a href="https://github.com/Volko61"><img src="https://images.weserv.nl/?url=github.com/Volko61.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@Volko61" /></a>
+<a href="https://github.com/eltociear"><img src="https://images.weserv.nl/?url=github.com/eltociear.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@eltociear" /></a>
+<a href="https://github.com/mamehi"><img src="https://images.weserv.nl/?url=github.com/mamehi.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@mamehi" /></a>
+<a href="https://github.com/chuenchen309"><img src="https://images.weserv.nl/?url=github.com/chuenchen309.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@chuenchen309" /></a>
+<a href="https://github.com/ixABK"><img src="https://images.weserv.nl/?url=github.com/ixABK.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@ixABK" /></a>
+<a href="https://github.com/zhangsheng377"><img src="https://images.weserv.nl/?url=github.com/zhangsheng377.png&w=40&h=40&fit=cover&mask=circle" width="40" alt="@zhangsheng377" /></a>
 
 ## Disclaimer
 

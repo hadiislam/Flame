@@ -45,6 +45,7 @@ describe('native Puter wire protocol',()=>{
     ['gemini-4-hydrogen', 'google:google/gemini-4-hydrogen'],
     ['qwen4-max', 'alibaba:qwen/qwen4-max'],
     ['qwen3.8-max', 'alibaba:qwen/qwen3.8-max'],
+    ['qwen3.7-max-2026-05-17', 'alibaba:qwen/qwen3.7-max-2026-05-17'],
     ['qwen3.7-max', 'alibaba:qwen/qwen3.7-max'],
     ['qwen3.7-flash', 'alibaba:qwen/qwen3.7-flash'],
     ['qwen3.6-flash', 'alibaba:qwen/qwen3.6-flash'],
@@ -94,6 +95,13 @@ describe('native Puter wire protocol',()=>{
       const read=async()=>{const out=[];for await(const c of p.streamChatCompletion('test',messages,model))out.push(c);return out;};
       if(valid)expect((await read()).at(-1)?.choices[0].finish_reason).toBe('stop');else await expect(read()).rejects.toThrow();
     }
+  });
+  it('rejects an oversized frame even when its newline arrives in the same chunk',async()=>{
+    const frame=JSON.stringify({type:'text',text:'x'.repeat(2_000_001)})+'\n';
+    const stream=frame+'{"type":"usage","finish_reason":"stop"}\n';
+    vi.stubGlobal('fetch',vi.fn().mockResolvedValue(new Response(stream)));
+    const read=async()=>{const chunks=[];for await(const chunk of new PuterProvider().streamChatCompletion('test',messages,model))chunks.push(chunk);return chunks;};
+    await expect(read()).rejects.toThrow('Oversized Puter stream frame');
   });
   it('keeps translation and extraction routes out of chat and routing policy',()=>{
     for(const [platform,id] of [['xkiro','cohere/command-a-translate'],['cloudflare','@cf/meta/m2m100-1.2b']] as const){
